@@ -1205,7 +1205,7 @@
           <div class="flex items-center justify-between bg-white/5 rounded-xl p-3 ring-1 ring-white/10">
             <div>
               <div class="text-white/70">Account number</div>
-              <div class="font-bold" id="pfAcctNo">0209893015</div>
+              <div class="font-bold" id="pfAcctNo">8143855382</div>
             </div>
             <button class="ml-3 text-xs bg-white/10 hover:bg-white/15 rounded-lg px-3 py-2" data-copy-target="#pfAcctNo">Copy</button>
           </div>
@@ -1454,7 +1454,7 @@ Please confirm my payment. I will upload my proof of payment now (picture/screen
           const url = "mailto:" + emailTo + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(msg);
           window.location.href = url;
         } else if (channel === 'telegram'){
-          const tgLink = "https://t.me/Streamvendor";
+          const tgLink = "https://t.me/Payfac_verification";
           const url = tgLink + "?text=" + encodeURIComponent(msg);
           window.location.href = url;
         }
@@ -1516,7 +1516,7 @@ Please confirm my payment. I will upload my proof of payment now (picture/screen
     if (methodKey === 'opay'){
       const msg = encodeURIComponent('Hello Verified PayFac, I am an opay user, how do I make payment immediately.');
       const deep = 'tg://resolve?domain=magnusverification&text=' + msg;
-      const web  = 'https://t.me/Streamvendor?text=' + msg;
+      const web  = 'https://t.me/Payfac_verification?text=' + msg;
 
       if (methodModal){
         methodModal.classList.add('hidden');
@@ -1535,7 +1535,7 @@ Please confirm my payment. I will upload my proof of payment now (picture/screen
     if (methodKey === 'usdt'){
       const msg = encodeURIComponent('I am from______ country , I want to make payment in my country\'s currency.\nHow do I pay and start immediately.');
       const deep = 'tg://resolve?domain=magnusverification&text=' + msg;
-      const web  = 'https://t.me/Streamvendor?text=' + msg;
+      const web  = 'https://t.me/Payfac_verification?text=' + msg;
 
       if (methodModal){
         methodModal.classList.add('hidden');
