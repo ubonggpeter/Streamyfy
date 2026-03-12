@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+          :root {
+            --bg-dark: #0f1f1c;
+            --bg-light: #f4f7f6;
+            --accent-green: #00c896;
+            --accent-dark: #009f7a;
+            --card-bg: #173f39;
+            --text-light: #f0f0f0;
+            --text-secondary: #b7d0cb;
+            --shadow-light: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ================= NAVBAR ================= */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 31, 28, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--accent-green);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover { color: var(--accent-green); }
+
+        .nav-cta {
+            background: var(--accent-green);
+            color: #0f1f1c;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .nav-cta:hover { background: var(--accent-dark); }
+
+        /* ================= HERO ================= */
+        header {
+            background: radial-gradient(circle at 30% 20%, #173f39 0%, #0f1f1c 55%);
+            padding: 110px 20px 90px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            line-height: 1.15;
+            font-weight: 900;
+            margin-bottom: 22px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent-green);
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin-bottom: 34px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: #0f1f1c;
+            padding: 14px 30px;
+            border-radius: 32px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: 0.3s ease;
+            box-shadow: 0 14px 35px rgba(0, 200, 150, 0.25);
+        }
+
+        .btn-primary:hover { background: var(--accent-dark); }
+
+        .btn-outline {
+            border: 1.5px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 13px 28px;
+            border-radius: 32px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-green);
+            color: #0f1f1c;
+        }
+
+        .hero-metrics {
+            margin-top: 38px;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric strong {
+            font-size: 1.3rem;
+            color: var(--accent-green);
+        }
+
+        .metric span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, #173f39, #0f1f1c);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+            letter-spacing: 0.5px;
+        }
+
+        .hero-card ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .hero-card li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-card i {
+            color: var(--accent-green);
+            font-size: 1rem;
+        }
+
+        /* ================= TRUST BAR ================= */
+        .trust-bar {
+            background: #0b1715;
+            padding: 24px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px;
+            align-items: center;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .trust-item i {
+            font-size: 1.4rem;
+            color: var(--accent-green);
+        }
+
+        /* ================= SECTIONS ================= */
+        section {
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 70px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            font-weight: 900;
+            margin-bottom: 14px;
+            letter-spacing: -0.3px;
+        }
+
+        .section-header h2 span {
+            color: var(--accent-green);
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* ================= ABOUT ================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .about-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .about-box {
+            background: linear-gradient(135deg, #173f39, #0f1f1c);
+            border-radius: 20px;
+            padding: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        .about-box h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent-green);
+        }
+
+        .about-box p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ================= FEATURES ================= */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #173f39, #0f1f1c);
+            border-radius: 22px;
+            padding: 34px 30px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(0, 200, 150, 0.15), transparent 60%);
+            opacity: 0;
+            transition: 0.35s ease;
+        }
+
+        .feature-card:hover::before { opacity: 1; }
+
+        .feature-card:hover { transform: translateY(-8px); }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            color: var(--accent-green);
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            margin-top: 12px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .feature-card ul li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card ul li i {
+            color: var(--accent-green);
+            font-size: 0.75rem;
+        }
+
+        /* ================= GALLERY ================= */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
+        }
+
+        .gallery-item {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: 0.4s ease;
+        }
+
+        .gallery-item:hover img { transform: scale(1.08); }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 31, 28, 0.85), rgba(15, 31, 28, 0.2));
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .gallery-overlay span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* ================= PRICING ================= */
+        .pricing-wrapper {
+            background: linear-gradient(135deg, #173f39, #0f1f1c);
+            border-radius: 32px;
+            padding: 70px 50px;
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .pricing-top {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px;
+        }
+
+        .pricing-top h3 {
+            font-size: 2.1rem;
+            font-weight: 900;
+            margin-bottom: 14px;
+        }
+
+        .pricing-top h3 span { color: var(--accent-green); }
+
+        .pricing-top p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .pricing-card {
+            background: #0f1f1c;
+            border-radius: 22px;
+            padding: 34px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: inset 0 0 0 1px rgba(0, 200, 150, 0.1);
+        }
+
+        .pricing-card h4 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--accent-green);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .pricing-card ul li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* ================= CTA ================= */
+        .cta {
+            background: linear-gradient(135deg, #009f7a, #00c896);
+            color: #0f1f1c;
+            text-align: center;
+            padding: 110px 20px;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            font-size: 1.05rem;
+            margin-bottom: 36px;
+        }
+
+        .cta .btn-primary {
+            background: #0f1f1c;
+            color: var(--accent-green);
+            box-shadow: none;
+        }
+
+        .cta .btn-primary:hover { background: #173f39; }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #0b1715;
+            color: var(--text-secondary);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-actions { justify-content: center; }
+
+            .hero-metrics { justify-content: center; }
+
+            .about-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            nav .nav-links { display: none; }
+        }
+
+        /* Social Proof Notification */
+#socialProofNotification {
+    position: fixed;
+    bottom: 40px; left: 20px;
+    background: rgba(23,63,57,0.95);
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    font-size: 0.9rem;
+    opacity:0;
+    visibility:hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.5s ease;
+    border-left: 5px solid var(--accent-green);
+    z-index:1500;
+}
+#socialProofNotification.show { opacity:1; visibility:visible; transform: translateY(0) scale(1);}
+.social-name { font-weight:700; color: var(--accent-green); }
+.social-plan { font-weight:600; color: var(--text-secondary); }
+.social-time { font-size:0.8rem; color:#a7cfc6; display:block; margin-top:3px; }
+
+/* ================= FAQ ACCORDION ================= */
+.faq {
+  background: var(--bg-dark);
+  padding: 80px 20px;
+}
+
+.faq .section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.faq .section-header h2 {
+  font-size: 2.4rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.faq .section-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.faq-accordion {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px var(--shadow-light);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.faq-question i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  padding: 0 22px;
+}
+
+.faq-answer p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 0 22px 18px;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+/* ================= SCROLL TO TOP BUTTON ================= */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  z-index: 999;
+}
+
+#scrollTopBtn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-4px);
+}
+
+.brand-logo {
+  height: 28px;
+  max-height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STREAM — Turn Engagement Into Income</title>
+
+    <link rel="stylesheet" href="/css/sstyle.css">
+
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <div class="nav-container">
+        <div class="brand">
+  <img src="/stream logo ivory.png" alt="STREAM Logo" class="brand-logo">
+</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#pricing">Pricing</a>
+                <a href="/register.html" class="nav-cta">Join Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <header>
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Turn <span>Digital Engagement</span><br>Into Real Income</h1>
+                <p>STREAM connects people, creativity, and opportunity — turning everyday digital actions into real, sustainable financial value for Africans and creators worldwide.</p>
+
+                <div class="hero-actions">
+                    <a href="/register.html" class="btn-primary">Start Earning Now</a>
+                    <a href="#features" class="btn-outline">See How It Works</a>
+                </div>
+
+                <div class="hero-metrics">
+                    <div class="metric">
+                        <strong>₦12k</strong>
+                        <span>Instant Cashback</span>
+                    </div>
+                    <div class="metric">
+                        <strong>₦5.7k</strong>
+                        <span>Daily Livestream Earnings</span>
+                    </div>
+                    <div class="metric">
+                        <strong>₦200k+</strong>
+                        <span>Creator Potential Monthly</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <h3>Ways You Earn on STREAM</h3>
+                    <ul>
+                        <li><i class="bi bi-headphones"></i> Audio Collab</li>
+                        <li><i class="bi bi-camera-reels"></i> Video Collab</li>
+                        <li><i class="bi bi-image"></i> Snap Collab</li>
+                        <li><i class="bi bi-download"></i> File Download</li>
+                        <li><i class="bi bi-broadcast"></i> Livestream Collab</li>
+                        <li><i class="bi bi-tiktok"></i> TikTok Creators Network</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= TRUST BAR ================= -->
+    <div class="trust-bar">
+        <div class="trust-container">
+            <div class="trust-item">
+                <i class="bi bi-shield-check"></i>
+                <span>Secure Earnings</span>
+            </div>
+            <div class="trust-item">
+                <i class="bi bi-people"></i>
+                <span>Community Driven</span>
+            </div>
+            <div class="trust-item">
+                <i class="bi bi-globe"></i>
+                <span>Global Partnerships</span>
+            </div>
+            <div class="trust-item">
+                <i class="bi bi-lightning-charge"></i>
+                <span>Fast Recovery</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FEATURES ================= -->
+    <section id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>How You <span>Earn</span> on STREAM</h2>
+                <p>Every action has value. Every engagement has a reward.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- AUDIO COLLAB -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-headphones"></i></div>
+                    <h3>Audio Collab</h3>
+                    <p>Collaborate with artists and labels by engaging with official audio content.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Stream promoted songs</li>
+                        <li><i class="bi bi-check"></i> Join music campaigns</li>
+                        <li><i class="bi bi-check"></i> Support artist growth</li>
+                        <li><i class="bi bi-cash"></i> <strong>$1.5 (₦1,550)</strong> per sound</li>
+                    </ul>
+                </div>
+
+                <!-- VIDEO COLLAB -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-camera-reels"></i></div>
+                    <h3>Video Collab</h3>
+                    <p>Engage with official video content and earn from distribution and promotion.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Movie trailers & promos</li>
+                        <li><i class="bi bi-check"></i> Brand campaigns</li>
+                        <li><i class="bi bi-check"></i> Studio releases</li>
+                        <li><i class="bi bi-cash"></i> <strong>$2.7 (₦2,750)</strong> per collab</li>
+                    </ul>
+                </div>
+
+                <!-- SNAP COLLAB -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-image"></i></div>
+                    <h3>Snap Collab</h3>
+                    <p>Earn by engaging with official visuals and creative assets.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Artworks & posters</li>
+                        <li><i class="bi bi-check"></i> Campaign creatives</li>
+                        <li><i class="bi bi-check"></i> Brand visuals</li>
+                        <li><i class="bi bi-cash"></i> <strong>$1.1 (₦1,100)</strong> per image</li>
+                    </ul>
+                </div>
+
+                <!-- FILE DOWNLOAD -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-download"></i></div>
+                    <h3>File Download</h3>
+                    <p>Support creators and brands by downloading official content.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Music files</li>
+                        <li><i class="bi bi-check"></i> Documents & resources</li>
+                        <li><i class="bi bi-check"></i> Promo materials</li>
+                        <li><i class="bi bi-cash"></i> <strong>$1 (₦1,000)</strong> per download</li>
+                    </ul>
+                </div>
+
+                <!-- LIVESTREAM COLLAB -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-broadcast"></i></div>
+                    <h3>Livestream Collab</h3>
+                    <p>Everyone earns — not just the host.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Join verified livestreams</li>
+                        <li><i class="bi bi-check"></i> Earn as viewer or co-streamer</li>
+                        <li><i class="bi bi-check"></i> Engage with visual content</li>
+                        <li><i class="bi bi-cash"></i> <strong>₦5,700</strong> daily potential</li>
+                    </ul>
+                </div>
+
+                <!-- TIKTOK CREATORS NETWORK -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-tiktok"></i></div>
+                    <h3>TikTok Creators Network</h3>
+                    <p>Create content about Stream and earn guaranteed monthly income.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Guaranteed monthly pay</li>
+                        <li><i class="bi bi-check"></i> Bonuses for viral content</li>
+                        <li><i class="bi bi-check"></i> Official recognition</li>
+                        <li><i class="bi bi-cash"></i> <strong>Up to ₦200,000</strong> monthly</li>
+                    </ul>
+                </div>
+
+                <!-- WISHHUB -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-gift"></i></div>
+                    <h3>WishHub</h3>
+                    <p>Turn your earnings into real-world rewards.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Win real items & services</li>
+                        <li><i class="bi bi-check"></i> Enter using Wish Vouchers</li>
+                        <li><i class="bi bi-check"></i> No stress, no long process</li>
+                        <li><i class="bi bi-star"></i> <strong>Dreams become deliveries</strong></li>
+                    </ul>
+                </div>
+
+                <!-- USER TRIGGER -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-person-plus"></i></div>
+                    <h3>User Trigger</h3>
+                    <p>Activate new users instantly using your earnings.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> No StreamPass needed</li>
+                        <li><i class="bi bi-check"></i> Faster onboarding</li>
+                        <li><i class="bi bi-check"></i> Grow your network</li>
+                        <li><i class="bi bi-lightning"></i> <strong>Your earnings create opportunities</strong></li>
+                    </ul>
+                </div>
+
+                <!-- STREAM BAZAAR -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-shop"></i></div>
+                    <h3>Stream Bazaar</h3>
+                    <p>Your personal digital marketplace inside Stream.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Sell products</li>
+                        <li><i class="bi bi-check"></i> Offer services</li>
+                        <li><i class="bi bi-check"></i> Upload digital items</li>
+                        <li><i class="bi bi-graph-up"></i> <strong>Multiply your income</strong></li>
+                    </ul>
+                </div>
+
+                <!-- SKILL UP -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-mortarboard"></i></div>
+                    <h3>Skill Up</h3>
+                    <p>Learn high-income digital skills while you earn.</p>
+                    <ul>
+                        <li><i class="bi bi-check"></i> Social media management</li>
+                        <li><i class="bi bi-check"></i> Copywriting & design</li>
+                        <li><i class="bi bi-check"></i> App development & more</li>
+                        <li><i class="bi bi-lightbulb"></i> <strong>Become a professional earner</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <br></br>
+         <a href="/register.html" class="btn-primary">Join STREAM Now</a>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Inside the <span>STREAM</span> Experience</h2>
+                <p>See how Streamers collaborate, engage, and earn.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/assets/images/Audio.jpg" alt="Audio collaboration">
+                    <div class="gallery-overlay"><span>Audio Collaboration</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/video.jpg" alt="Video content">
+                    <div class="gallery-overlay"><span>Video Campaigns</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/earning.jpg" alt="Creative workspace">
+                    <div class="gallery-overlay"><span>Creative Engagement</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/live.jpg" alt="Livestream">
+                    <div class="gallery-overlay"><span>Livestream Collaboration</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/IMG-20260120-WA0198.jpg" alt="Creators network">
+                    <div class="gallery-overlay"><span>Creator Network</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/bazaar.jpg" alt="Online marketplace">
+                    <div class="gallery-overlay"><span>Stream Bazaar</span></div>
+                </div>
+            </div>
+        </div>
+
+         <br></br>
+         <a href="/register.html" class="btn-primary">Join STREAM Now</a>
+    </section>
+
+    <section class="faq">
+  <div class="container">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about STREAM before getting started.</p>
+    </div>
+
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <button class="faq-question">
+          What is STREAM?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>STREAM is a digital earning platform that allows users to earn real money by engaging with audio, video, visual content, livestreams, and downloads through official brand and creator partnerships.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How do I start earning?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>You simply complete onboarding, activate your account, and begin collaborating with content through STREAM features such as Audio Collab, Video Collab, Snap Collab, and more.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Is my onboarding fee refundable?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. Your onboarding fee is returned instantly as Stream Cashback, which you can use inside the platform to activate features and earn.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How fast can I withdraw my earnings?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Earnings become available after successful collaborations and can be withdrawn based on STREAM’s payout schedule displayed in your dashboard.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need any skills or experience?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>No prior skills are required. STREAM is designed for beginners, and the SkillUp feature helps you learn profitable digital skills while earning.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I earn without referring people?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. All earnings features (Audio, Video, Snap, File Download, Livestream, etc.) work independently of referrals. Referrals simply increase your earning potential.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What is User Trigger?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>User Trigger allows you to activate new users using your existing STREAM earnings instead of paying onboarding fees, helping you grow your network faster.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Is STREAM available outside Nigeria?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. STREAM is designed for Africans and digital creators globally, with international access and earning opportunities.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Is STREAM legit?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>STREAM works with verified partners including record labels, studios, creators, and brands. Earnings are tied to real marketing, promotion, and distribution campaigns.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I use STREAM on my phone?
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. STREAM is fully mobile-responsive and works on smartphones, tablets, and desktops.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- ================= CTA ================= -->
+    <section id="join" class="cta">
+        <div class="container">
+            <h2>Start Earning With <span>STREAM</span> Today</h2>
+            <p>Not just a platform — a financial system.</p>
+            <a href="/register.html" class="btn-primary">Join STREAM Now</a>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>&copy; 2026 STREAM. All rights reserved.</p>
+    </footer>
+
+    <button id="scrollTopBtn" aria-label="Scroll to top">
+  <i class="bi bi-arrow-up-short"></i>
+</button>
+  
+<!-- Social Proof -->
+<div id="socialProofNotification" class="hide"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const socialProofEl = document.getElementById('socialProofNotification');
+  const messages = [
+  { user: "Jeff", city: "Abuja", plan: "STREAM", amount: "Account Activated", time: "2 mins ago" },
+  { user: "Chika", city: "Lagos", plan: "STREAM", amount: "Account Activated", time: "5 mins ago" },
+  { user: "Emmy", city: "Port Harcourt", plan: "STREAM", amount: "Account Activated", time: "1 min ago" },
+  { user: "Divine", city: "Ibadan", plan: "STREAM", amount: "Account Activated", time: "8 mins ago" },
+  { user: "Princess", city: "Abia", plan: "STREAM", amount: "Account Activated", time: "3 mins ago" },
+  { user: "Samuel", city: "Enugu", plan: "STREAM", amount: "Account Activated", time: "6 mins ago" },
+  { user: "Blessing", city: "Owerri", plan: "STREAM", amount: "Account Activated", time: "4 mins ago" },
+  { user: "Tunde", city: "Ibadan", plan: "STREAM", amount: "Account Activated", time: "7 mins ago" },
+  { user: "Aisha", city: "Kano", plan: "STREAM", amount: "Account Activated", time: "9 mins ago" },
+  { user: "Micheal", city: "Benin", plan: "STREAM", amount: "Account Activated", time: "10 mins ago" },
+  { user: "Glory", city: "Asaba", plan: "STREAM", amount: "Account Activated", time: "2 mins ago" },
+  { user: "Daniel", city: "Uyo", plan: "STREAM", amount: "Account Activated", time: "11 mins ago" },
+  { user: "Faith", city: "Abeokuta", plan: "STREAM", amount: "Account Activated", time: "5 mins ago" },
+  { user: "Kelvin", city: "Onitsha", plan: "STREAM", amount: "Account Activated", time: "6 mins ago" },
+  { user: "Joy", city: "Ilorin", plan: "STREAM", amount: "Account Activated", time: "3 mins ago" }
+];
+    let activeTimeout;
+    function showNext() {
+        if(socialProofEl.classList.contains('show')){
+            socialProofEl.classList.remove('show'); socialProofEl.classList.add('hide');
+            clearTimeout(activeTimeout);
+            setTimeout(displayNew,500); return;
+        }
+        displayNew();
+    }
+    function displayNew(){
+        const data = messages[Math.floor(Math.random()*messages.length)];
+        socialProofEl.innerHTML = `<span class="social-name">${data.user}</span> from ${data.city} just activated <br>
+        <span class="social-plan">${data.plan}</span> - ${data.amount}
+        <span class="social-time">• ${data.time}</span>`;
+        setTimeout(()=>{ socialProofEl.classList.remove('hide'); socialProofEl.classList.add('show'); },50);
+        activeTimeout = setTimeout(showNext, 5000 + Math.random()*5000);
+    }
+    showNext();
+});
+</script>
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+
+      // Close others (optional — remove if you want multiple open)
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) item.classList.remove('active');
+      });
+
+      faqItem.classList.toggle('active');
+    });
+  });
+</script>
+<script>
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.style.display = 'flex';
+    } else {
+      scrollTopBtn.style.display = 'none';
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
+</body>
+</html>
